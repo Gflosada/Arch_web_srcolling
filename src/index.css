@@ -1,0 +1,332 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color: #f7f2ea;
+  background: #050505;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: #050505;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: #050505;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+img,
+video {
+  max-width: 100%;
+}
+
+::selection {
+  color: #050505;
+  background: #c89b5c;
+}
+
+.hero-grain {
+  background-image: radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.35) 0 1px, transparent 1px);
+  background-size: 3px 3px;
+}
+
+@keyframes scrollCue {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(200%);
+  }
+}
+
+.animate-scrollCue {
+  animation: scrollCue 1.5s ease-in-out infinite;
+}
+
+.cinematic-transition {
+  position: relative;
+  display: grid;
+  min-height: 100vh;
+  min-height: 100dvh;
+  place-items: center;
+  overflow: hidden;
+  background: #030303;
+  isolation: isolate;
+}
+
+.cinematic-transition::before {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  content: "";
+  background:
+    radial-gradient(circle at 50% 52%, rgba(210, 170, 100, 0.1), transparent 32%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent 36%, rgba(0, 0, 0, 0.55));
+  pointer-events: none;
+}
+
+.transition-bg-text {
+  position: absolute;
+  left: -38vw;
+  top: 50%;
+  z-index: 1;
+  display: flex;
+  width: max-content;
+  gap: clamp(2rem, 6vw, 7rem);
+  color: rgba(255, 255, 255, 0.04);
+  font-family: Inter, system-ui, sans-serif;
+  font-size: clamp(8rem, 22vw, 26rem);
+  font-weight: 700;
+  letter-spacing: -0.08em;
+  line-height: 0.78;
+  pointer-events: none;
+  text-transform: uppercase;
+  transform: translateY(-50%);
+  white-space: nowrap;
+}
+
+.transition-title {
+  position: relative;
+  z-index: 3;
+  color: #f7f2ea;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(3rem, 12vw, 14rem);
+  font-weight: 600;
+  letter-spacing: -0.06em;
+  line-height: 0.9;
+  text-align: center;
+  text-transform: uppercase;
+  will-change: transform, opacity, filter;
+}
+
+.transition-card {
+  position: absolute;
+  left: 50%;
+  top: 52%;
+  z-index: 4;
+  margin: 0;
+  max-width: calc(100vw - 2rem);
+  max-height: calc(100dvh - 2rem);
+  overflow: hidden;
+  border: 1px solid rgba(210, 170, 100, 0.35);
+  background: #090806;
+  box-shadow: 0 32px 110px rgba(0, 0, 0, 0.68), 0 0 80px rgba(210, 170, 100, 0.08);
+  transform: translate(-50%, -50%);
+  will-change: width, height, transform, opacity;
+}
+
+.transition-card img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  will-change: transform;
+}
+
+.corner-mark {
+  position: absolute;
+  z-index: 2;
+  width: clamp(1.25rem, 3vw, 2.5rem);
+  height: clamp(1.25rem, 3vw, 2.5rem);
+  pointer-events: none;
+}
+
+.corner-mark::before,
+.corner-mark::after {
+  position: absolute;
+  content: "";
+  background: rgba(210, 170, 100, 0.7);
+}
+
+.corner-mark::before {
+  width: 100%;
+  height: 1px;
+}
+
+.corner-mark::after {
+  width: 1px;
+  height: 100%;
+}
+
+.corner-mark-top-left {
+  left: 1rem;
+  top: 1rem;
+}
+
+.corner-mark-top-left::before,
+.corner-mark-top-left::after {
+  left: 0;
+  top: 0;
+}
+
+.corner-mark-top-right {
+  right: 1rem;
+  top: 1rem;
+}
+
+.corner-mark-top-right::before,
+.corner-mark-top-right::after {
+  right: 0;
+  top: 0;
+}
+
+.corner-mark-bottom-left {
+  bottom: 1rem;
+  left: 1rem;
+}
+
+.corner-mark-bottom-left::before,
+.corner-mark-bottom-left::after {
+  bottom: 0;
+  left: 0;
+}
+
+.corner-mark-bottom-right {
+  bottom: 1rem;
+  right: 1rem;
+}
+
+.corner-mark-bottom-right::before,
+.corner-mark-bottom-right::after {
+  bottom: 0;
+  right: 0;
+}
+
+.transition-caption {
+  position: absolute;
+  left: 50%;
+  top: calc(50% + 30vh);
+  z-index: 5;
+  min-height: 2rem;
+  width: min(90vw, 34rem);
+  color: rgba(247, 242, 234, 0.8);
+  font-size: clamp(0.8rem, 1.4vw, 1rem);
+  font-weight: 600;
+  letter-spacing: 0.26em;
+  line-height: 1.6;
+  text-align: center;
+  text-transform: uppercase;
+  transform: translateX(-50%);
+}
+
+.transition-caption p {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  will-change: transform, opacity;
+}
+
+@keyframes sceneFade {
+  0% {
+    opacity: 0;
+    transform: translateY(28px);
+    filter: blur(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+
+  .scene-copy,
+  .final-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+
+  .cinematic-transition {
+    min-height: 100vh;
+    padding: 5rem 1.25rem;
+  }
+
+  .transition-bg-text {
+    opacity: 0.45;
+    transform: translate(-8%, -50%) !important;
+  }
+
+  .transition-title {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+
+  .transition-card {
+    width: min(88vw, 46rem) !important;
+    height: min(44vh, 26rem) !important;
+    opacity: 1 !important;
+    transform: translate(-50%, -50%) !important;
+  }
+
+  .transition-card img {
+    transform: none !important;
+  }
+
+  .corner-mark {
+    opacity: 1 !important;
+  }
+
+  .transition-caption p:first-child {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .transition-caption p:last-child {
+    opacity: 0 !important;
+  }
+}
+
+@media (max-width: 1023px) {
+  .scene-panel {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 767px) {
+  .transition-bg-text {
+    left: -72vw;
+    gap: 2rem;
+    font-size: clamp(5rem, 30vw, 11rem);
+    opacity: 0.78;
+  }
+
+  .transition-title {
+    font-size: clamp(3rem, 17vw, 7rem);
+  }
+
+  .transition-card {
+    top: 54%;
+  }
+
+  .transition-caption {
+    top: calc(50% + 25vh);
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+  }
+}
