@@ -1,7 +1,7 @@
 import HeroVideoScroll from "./components/HeroVideoScroll.jsx";
 import CinematicIntroTransition from "./components/CinematicIntroTransition.jsx";
 import StoryScroll from "./components/StoryScroll.jsx";
-import FinalSection from "./components/FinalSection.jsx";
+import CompleteCaseStudyScroll from "./components/CompleteCaseStudyScroll.jsx";
 import Footer from "./components/Footer.jsx";
 
 export default function App() {
@@ -10,7 +10,7 @@ export default function App() {
       <HeroVideoScroll />
       <CinematicIntroTransition />
       <StoryScroll />
-      <FinalSection />
+      <CompleteCaseStudyScroll />
       <Footer />
     </main>
   );

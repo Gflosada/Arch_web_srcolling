@@ -255,10 +255,32 @@ video {
   }
 
   .scene-copy,
-  .final-reveal {
+  .final-reveal,
+  .case-eyebrow,
+  .case-headline,
+  .case-description,
+  .case-cards-stage,
+  .case-card,
+  .case-card-content > *,
+  .case-closing {
     opacity: 1 !important;
     transform: none !important;
     filter: none !important;
+  }
+
+  .case-cards-stage {
+    height: auto !important;
+    min-height: 0 !important;
+  }
+
+  .case-card {
+    position: relative !important;
+    inset: auto !important;
+    margin-bottom: 2rem;
+  }
+
+  .case-card-image-wrap {
+    clip-path: none !important;
   }
 
   .cinematic-transition {
